@@ -1,0 +1,33 @@
+test_absolute (__main__.TestExercice) ... ok
+test_factorial (__main__.TestExercice) ... ok
+test_prefixes (__main__.TestExercice) ... ok
+test_summation (__main__.TestExercice) ... FAIL
+test_verify_ages (__main__.TestExercice) ... FAIL
+
+======================================================================
+FAIL: test_summation (__main__.TestExercice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thomas/Desktop/École/INF1007/c03_ch5_exercices-thomasspina/test_exercice.py", line 47, in test_summation
+    self.assertEqual(
+AssertionError: 20189 != 24133 : Mauvaise réponse
+
+======================================================================
+FAIL: test_verify_ages (__main__.TestExercice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thomas/Desktop/École/INF1007/c03_ch5_exercices-thomasspina/test_exercice.py", line 74, in test_verify_ages
+    self.assertListEqual(
+AssertionError: Lists differ: [] != [False, True, False, False, True, True, True, True, False]
+
+Second list contains 9 additional elements.
+First extra element 0:
+False
+
+- []
++ [False, True, False, False, True, True, True, True, False] : Mauvaise réponse
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.004s
+
+FAILED (failures=2)

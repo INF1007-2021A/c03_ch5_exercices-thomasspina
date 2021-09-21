@@ -1,34 +1,80 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-
 from typing import List
-
+import math
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number > 0:
+        return number
+    return number * -1
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
+    names = []
 
-    return [""]
+    for char in prefixes:
+        names.append(char + suffixe)
+    
+    return names
 
 
 def prime_integer_summation() -> int:
-    return 0
+    prime_nums = [2, 3]
+
+    curr_num = 3
+    while len(prime_nums) != 100:
+        curr_num += 2
+        is_prime = True
+
+        for i in range(3, (int(math.sqrt(curr_num)) + 1), 2):
+            if curr_num % i == 0 and i != curr_num:
+                is_prime = False
+                break
+        
+        if is_prime:
+            prime_nums.append(curr_num)
+
+    return sum(prime_nums)
 
 
 def factorial(number: int) -> int:
-    return 0
+    for i in range(1, number):
+        number *= i
+
+    return number
 
 
 def use_continue() -> None:
-    pass
+    for i in range(1, 11):
+        if i == 5:
+            continue
+        print(i)
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    acceptable_groups = []
+
+    for group in groups:
+        if len(group) > 10 or len(group) <= 3:
+            acceptable_groups.append(False)
+            continue
+
+        has_70, has_50, group_validity = False, False, True
+        for age in group:
+            if age == 50:
+                has_50 = True
+            if age > 70:
+                has_70 = True
+
+            if (has_70 and has_50) or age < 18:
+                group_validity = False
+                
+            if age == 25:
+                group_validity = True
+                break 
+        
+        acceptable_groups.append(group_validity)
+
+    return acceptable_groups
 
 
 def main() -> None:
